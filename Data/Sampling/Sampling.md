@@ -106,11 +106,11 @@ $$p(\omega) \propto \cos\theta$$
 
 假设我们想分别按 PDF 为 $p_1$、$p_2$、$p_3$、$p_4$ 来采样四个随机变量，我们把它们的 CDF （$\sum_{1}^{i} p_i$） 绘制出来，如图所示：
 
-![](./discrete-cdf.svg)
+![](./discrete-cdf.png)
 
 如果我们在 $[0, 1)$ 随机取变量 $\xi$，在 Y 轴画条线找到第一个有交点的变量，就显而易见地满足了指定的 PDF :
 
-![](./discrete-inversion.svg)
+![](./discrete-inversion.png)
 
 将这个方法扩展到连续的随机变量上为：
 
@@ -175,7 +175,7 @@ $$\int_{H^2}c\cos\theta\,d\omega = 1$$
 
 这个积分直接求不太好求，我们一般将其转换为对 $(\theta, \phi)$ 的积分，这里再次借用 PBRT 的图：
 
-![](./Sin_dtheta_dphi.svg)
+![](./Sin_dtheta_dphi.png)
 
 其中，$\,d\omega$ 就是图中灰色部分的面积。在 $\,d\theta$、$\,d\phi$ 足够小时，灰色部分是个矩形，求面积只需要乘上俩边长。易见俩边长分别为 $\,d\theta$、$\sin\theta\,d\phi$（$\sin\theta$ 从将球半径投影至平面得到），则
 
@@ -199,7 +199,7 @@ $$p(\theta,\phi) = \frac{\cos\theta\sin\theta}{\pi}$$
 
 我们希望在半球表面上取点，使得 $p(\theta,\phi) = \frac{\cos\theta\sin\theta}{\pi}$。Malley's method 说的是，如果我们能够在圆上均匀取点，将这个点投影到半球表面，那么这样就能满足我们期望的 PDF。
 
-![](./Malleys_method.svg)
+![](./Malleys_method.png)
 
 圆上的 $(r, \theta)$ 在半球里实际上是 $(\sin\theta, \phi)$，我们将其变换到 $(\theta, \phi)$，即
 

@@ -110,11 +110,11 @@ glm::vec2 RejectionSampleDisk(Sampler& sampler) {
 
 假设我们想分别按 PDF 为  <img src="https://www.zhihu.com/equation?tex=p_1" alt="p_1" class="ee_img tr_noresize" eeimg="1"> 、 <img src="https://www.zhihu.com/equation?tex=p_2" alt="p_2" class="ee_img tr_noresize" eeimg="1"> 、 <img src="https://www.zhihu.com/equation?tex=p_3" alt="p_3" class="ee_img tr_noresize" eeimg="1"> 、 <img src="https://www.zhihu.com/equation?tex=p_4" alt="p_4" class="ee_img tr_noresize" eeimg="1">  来采样四个随机变量，我们把它们的 CDF （ <img src="https://www.zhihu.com/equation?tex=\sum_{1}^{i} p_i" alt="\sum_{1}^{i} p_i" class="ee_img tr_noresize" eeimg="1"> ） 绘制出来，如图所示：
 
-![](https://raw.githubusercontent.com/LYP951018/Markdown4Zhihu/master/Data/Sampling/discrete-cdf.svg)
+![](./discrete-cdf.png)
 
 如果我们在  <img src="https://www.zhihu.com/equation?tex=[0, 1)" alt="[0, 1)" class="ee_img tr_noresize" eeimg="1">  随机取变量  <img src="https://www.zhihu.com/equation?tex=\xi" alt="\xi" class="ee_img tr_noresize" eeimg="1"> ，在 Y 轴画条线找到第一个有交点的变量，就显而易见地满足了指定的 PDF :
 
-![](https://raw.githubusercontent.com/LYP951018/Markdown4Zhihu/master/Data/Sampling/discrete-inversion.svg)
+![](https://raw.githubusercontent.com/LYP951018/Markdown4Zhihu/master/Data/Sampling/discrete-inversion.png)
 
 将这个方法扩展到连续的随机变量上为：
 
@@ -189,7 +189,7 @@ glm::vec2 RejectionSampleDisk(Sampler& sampler) {
 
 这个积分直接求不太好求，我们一般将其转换为对  <img src="https://www.zhihu.com/equation?tex=(\theta, \phi)" alt="(\theta, \phi)" class="ee_img tr_noresize" eeimg="1">  的积分，这里再次借用 PBRT 的图：
 
-![](https://raw.githubusercontent.com/LYP951018/Markdown4Zhihu/master/Data/Sampling/Sin_dtheta_dphi.svg)
+![](https://raw.githubusercontent.com/LYP951018/Markdown4Zhihu/master/Data/Sampling/Sin_dtheta_dphi.png)
 
 其中， <img src="https://www.zhihu.com/equation?tex=\,d\omega" alt="\,d\omega" class="ee_img tr_noresize" eeimg="1">  就是图中灰色部分的面积。在  <img src="https://www.zhihu.com/equation?tex=\,d\theta" alt="\,d\theta" class="ee_img tr_noresize" eeimg="1"> 、 <img src="https://www.zhihu.com/equation?tex=\,d\phi" alt="\,d\phi" class="ee_img tr_noresize" eeimg="1">  足够小时，灰色部分是个矩形，求面积只需要乘上俩边长。易见俩边长分别为  <img src="https://www.zhihu.com/equation?tex=\,d\theta" alt="\,d\theta" class="ee_img tr_noresize" eeimg="1"> 、 <img src="https://www.zhihu.com/equation?tex=\sin\theta\,d\phi" alt="\sin\theta\,d\phi" class="ee_img tr_noresize" eeimg="1"> （ <img src="https://www.zhihu.com/equation?tex=\sin\theta" alt="\sin\theta" class="ee_img tr_noresize" eeimg="1">  从将球半径投影至平面得到），则
 
@@ -219,7 +219,7 @@ glm::vec2 RejectionSampleDisk(Sampler& sampler) {
 
 我们希望在半球表面上取点，使得  <img src="https://www.zhihu.com/equation?tex=p(\theta,\phi) = \frac{\cos\theta\sin\theta}{\pi}" alt="p(\theta,\phi) = \frac{\cos\theta\sin\theta}{\pi}" class="ee_img tr_noresize" eeimg="1"> 。Malley's method 说的是，如果我们能够在圆上均匀取点，将这个点投影到半球表面，那么这样就能满足我们期望的 PDF。
 
-![](https://raw.githubusercontent.com/LYP951018/Markdown4Zhihu/master/Data/Sampling/Malleys_method.svg)
+![](https://raw.githubusercontent.com/LYP951018/Markdown4Zhihu/master/Data/Sampling/Malleys_method.png)
 
 圆上的  <img src="https://www.zhihu.com/equation?tex=(r, \theta)" alt="(r, \theta)" class="ee_img tr_noresize" eeimg="1">  在半球里实际上是  <img src="https://www.zhihu.com/equation?tex=(\sin\theta, \phi)" alt="(\sin\theta, \phi)" class="ee_img tr_noresize" eeimg="1"> ，我们将其变换到  <img src="https://www.zhihu.com/equation?tex=(\theta, \phi)" alt="(\theta, \phi)" class="ee_img tr_noresize" eeimg="1"> ，即
 
