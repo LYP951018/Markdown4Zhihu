@@ -158,12 +158,14 @@ glm::vec2 RejectionSampleDisk(Sampler& sampler) {
 
 <img src="https://www.zhihu.com/equation?tex=P_r{r} = \int_{0}^{r} r'\,dr' = r^2" alt="P_r{r} = \int_{0}^{r} r'\,dr' = r^2" class="ee_img tr_noresize" eeimg="1">
 
+
 <img src="https://www.zhihu.com/equation?tex=P_\theta{\theta} = \int_{0}^{\theta} \theta'\,d\theta' = \frac{\theta}{2\pi}" alt="P_\theta{\theta} = \int_{0}^{\theta} \theta'\,d\theta' = \frac{\theta}{2\pi}" class="ee_img tr_noresize" eeimg="1">
 
 对 CDF 求反，把在  <img src="https://www.zhihu.com/equation?tex=[0, 1)" alt="[0, 1)" class="ee_img tr_noresize" eeimg="1">  均匀取的独立变量  <img src="https://www.zhihu.com/equation?tex=\xi_1" alt="\xi_1" class="ee_img tr_noresize" eeimg="1"> 、 <img src="https://www.zhihu.com/equation?tex=\xi_2" alt="\xi_2" class="ee_img tr_noresize" eeimg="1">  代入，可得
 
 
 <img src="https://www.zhihu.com/equation?tex=r = \sqrt{\xi_1}" alt="r = \sqrt{\xi_1}" class="ee_img tr_noresize" eeimg="1">
+
 
 <img src="https://www.zhihu.com/equation?tex=\theta = 2\pi\xi_2" alt="\theta = 2\pi\xi_2" class="ee_img tr_noresize" eeimg="1">
 
@@ -199,9 +201,12 @@ glm::vec2 RejectionSampleDisk(Sampler& sampler) {
 
 <img src="https://www.zhihu.com/equation?tex=\int_0^{2\pi} \int_0^{\frac{\pi}{2}} c\cos\theta\sin\theta\,d\theta\,d\phi = 1" alt="\int_0^{2\pi} \int_0^{\frac{\pi}{2}} c\cos\theta\sin\theta\,d\theta\,d\phi = 1" class="ee_img tr_noresize" eeimg="1">
 
+
 <img src="https://www.zhihu.com/equation?tex=\int_0^{2\pi} \int_0^{\frac{\pi}{2}} \cos\theta\sin\theta\,d\theta\,d\phi = \frac{1}{c}" alt="\int_0^{2\pi} \int_0^{\frac{\pi}{2}} \cos\theta\sin\theta\,d\theta\,d\phi = \frac{1}{c}" class="ee_img tr_noresize" eeimg="1">
 
+
 <img src="https://www.zhihu.com/equation?tex=\int_0^{2\pi}\frac{1}{2}\,d\phi = \frac{1}{c}" alt="\int_0^{2\pi}\frac{1}{2}\,d\phi = \frac{1}{c}" class="ee_img tr_noresize" eeimg="1">
+
 
 <img src="https://www.zhihu.com/equation?tex=c = \frac{1}{\pi}" alt="c = \frac{1}{\pi}" class="ee_img tr_noresize" eeimg="1">
 
@@ -221,7 +226,9 @@ glm::vec2 RejectionSampleDisk(Sampler& sampler) {
 
 <img src="https://www.zhihu.com/equation?tex=H_1^{-1}(x_1, x_2) = \sin{x_{1}}" alt="H_1^{-1}(x_1, x_2) = \sin{x_{1}}" class="ee_img tr_noresize" eeimg="1">
 
+
 <img src="https://www.zhihu.com/equation?tex=H_2^{-1}(x_1, x_2) = x_2" alt="H_2^{-1}(x_1, x_2) = x_2" class="ee_img tr_noresize" eeimg="1">
+
 
 <img src="https://www.zhihu.com/equation?tex=f_{X_1, X_2} = \frac{X_1}{\pi}" alt="f_{X_1, X_2} = \frac{X_1}{\pi}" class="ee_img tr_noresize" eeimg="1">
 
@@ -240,12 +247,14 @@ glm::vec2 RejectionSampleDisk(Sampler& sampler) {
 
 <img src="https://www.zhihu.com/equation?tex=p(u) = \int_{0}^{1 - u}2\,dv = 2(1 - u)" alt="p(u) = \int_{0}^{1 - u}2\,dv = 2(1 - u)" class="ee_img tr_noresize" eeimg="1">
 
+
 <img src="https://www.zhihu.com/equation?tex=p(v | u) = \frac{p(u, v)}{p(u)} = \frac{2}{2(1 - u)} = \frac{1}{1 - u}" alt="p(v | u) = \frac{p(u, v)}{p(u)} = \frac{2}{2(1 - u)} = \frac{1}{1 - u}" class="ee_img tr_noresize" eeimg="1">
 
 然后对二者积分
 
 
 <img src="https://www.zhihu.com/equation?tex=P_u(u) = \int_{0}^{u}2(1 - u')\,du' = 2u - u^2" alt="P_u(u) = \int_{0}^{u}2(1 - u')\,du' = 2u - u^2" class="ee_img tr_noresize" eeimg="1">
+
 
 <img src="https://www.zhihu.com/equation?tex=P_v(v) = \int_{0}^{v}p(v'|u) = \int_{0}^{v}\frac{1}{1 - u}\,dv' = \frac{v}{1 - u} " alt="P_v(v) = \int_{0}^{v}p(v'|u) = \int_{0}^{v}\frac{1}{1 - u}\,dv' = \frac{v}{1 - u} " class="ee_img tr_noresize" eeimg="1">
 
@@ -254,12 +263,14 @@ glm::vec2 RejectionSampleDisk(Sampler& sampler) {
 
 <img src="https://www.zhihu.com/equation?tex=u = 1 - \sqrt{1 - \xi_1} " alt="u = 1 - \sqrt{1 - \xi_1} " class="ee_img tr_noresize" eeimg="1">
 
+
 <img src="https://www.zhihu.com/equation?tex=v = \sqrt{1 - \xi_1}\xi_2 " alt="v = \sqrt{1 - \xi_1}\xi_2 " class="ee_img tr_noresize" eeimg="1">
 
 PBRT 多做了一步，它认为可以将  <img src="https://www.zhihu.com/equation?tex=1 - \xi" alt="1 - \xi" class="ee_img tr_noresize" eeimg="1">  替换为  <img src="https://www.zhihu.com/equation?tex=\xi" alt="\xi" class="ee_img tr_noresize" eeimg="1"> ，~~但是我觉得不太严谨：替换了之后定义域会包含原来不包含的  <img src="https://www.zhihu.com/equation?tex=1" alt="1" class="ee_img tr_noresize" eeimg="1"> ，由于  <img src="https://www.zhihu.com/equation?tex=\xi \in [0, 1)" alt="\xi \in [0, 1)" class="ee_img tr_noresize" eeimg="1"> ，替换完  <img src="https://www.zhihu.com/equation?tex=u" alt="u" class="ee_img tr_noresize" eeimg="1">  的范围有微妙的变化~~ 于是最终：
 
 
 <img src="https://www.zhihu.com/equation?tex=u = 1 - \sqrt{\xi_1} " alt="u = 1 - \sqrt{\xi_1} " class="ee_img tr_noresize" eeimg="1">
+
 
 <img src="https://www.zhihu.com/equation?tex=v = \sqrt{\xi_1}\xi_2 " alt="v = \sqrt{\xi_1}\xi_2 " class="ee_img tr_noresize" eeimg="1">
 

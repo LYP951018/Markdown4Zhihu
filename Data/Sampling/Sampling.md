@@ -149,11 +149,13 @@ $$p(r, \theta) = \frac{r}{\pi}$$
 $r$、$\theta$ 是妥妥独立的，我们把 $p(r, \theta) = \frac{r}{\pi}$ 拆一下，注意这里要绞尽脑汁拆成满足 $\int_{0}^{1} p_r(r')dr' = 1$。一番思考后拆成 $p_r(r) = 2r$、$p_{\theta}(\theta) = \frac{1}{2\pi}$。分别求解 CDF：
 
 $$P_r{r} = \int_{0}^{r} r'\,dr' = r^2$$
+
 $$P_\theta{\theta} = \int_{0}^{\theta} \theta'\,d\theta' = \frac{\theta}{2\pi}$$
 
 对 CDF 求反，把在 $[0, 1)$ 均匀取的独立变量 $\xi_1$、$\xi_2$ 代入，可得
 
 $$r = \sqrt{\xi_1}$$
+
 $$\theta = 2\pi\xi_2$$
 
 
@@ -182,8 +184,11 @@ $$ \,d\omega = \sin\theta\,d\theta\,d\phi$$
 那么将其代入我们刚才想求的式子 $\int_{H^2}c\cos\theta\,d\omega = 1$：
 
 $$\int_0^{2\pi} \int_0^{\frac{\pi}{2}} c\cos\theta\sin\theta\,d\theta\,d\phi = 1$$
+
 $$\int_0^{2\pi} \int_0^{\frac{\pi}{2}} \cos\theta\sin\theta\,d\theta\,d\phi = \frac{1}{c}$$
+
 $$\int_0^{2\pi}\frac{1}{2}\,d\phi = \frac{1}{c}$$
+
 $$c = \frac{1}{\pi}$$
 
 则
@@ -199,7 +204,9 @@ $$p(\theta,\phi) = \frac{\cos\theta\sin\theta}{\pi}$$
 圆上的 $(r, \theta)$ 在半球里实际上是 $(\sin\theta, \phi)$，我们将其变换到 $(\theta, \phi)$，即
 
 $$H_1^{-1}(x_1, x_2) = \sin{x_{1}}$$
+
 $$H_2^{-1}(x_1, x_2) = x_2$$
+
 $$f_{X_1, X_2} = \frac{X_1}{\pi}$$
 
 求解上面那个大式子，求得球面上的 PDF 为：
@@ -214,21 +221,25 @@ $$g(\theta, \phi) = \frac{\cos\theta\sin\theta}{\pi}$$
 三角形！渲染中出场率最高的形状。假设该三角形为腰长为 1 的等腰直角三角形，使用重心坐标（barycentric coordinate）来表示要取的点 $(u, v)$（其中 $u \in (0, 1),v \in (0, 1 - u)$），易得 $p(u, v) = \frac{1}{S}$，在这里我们有 $S = \frac{1}{2}$，则 $p(u, v) = 2$。这玩意可不太好拆出来 $p_u$、$p_v$，所以我们先求 $p(u)$、$p(v | u)$：
 
 $$p(u) = \int_{0}^{1 - u}2\,dv = 2(1 - u)$$
+
 $$p(v | u) = \frac{p(u, v)}{p(u)} = \frac{2}{2(1 - u)} = \frac{1}{1 - u}$$
 
 然后对二者积分
 
 $$P_u(u) = \int_{0}^{u}2(1 - u')\,du' = 2u - u^2$$
+
 $$P_v(v) = \int_{0}^{v}p(v'|u) = \int_{0}^{v}\frac{1}{1 - u}\,dv' = \frac{v}{1 - u} $$
 
 分别求反函数（$P_u$ 求解反函数时需要解个一元二次方程，去掉不在 $(0, 1)$ 范围内的那个解），将 $\xi_1$、$\xi_2$ 代入：
 
 $$ u = 1 - \sqrt{1 - \xi_1} $$
+
 $$ v = \sqrt{1 - \xi_1}\xi_2 $$
 
 PBRT 多做了一步，它认为可以将 $1 - \xi$ 替换为 $\xi$，~~但是我觉得不太严谨：替换了之后定义域会包含原来不包含的 $1$，由于 $\xi \in [0, 1)$，替换完 $u$ 的范围有微妙的变化~~ 于是最终：
 
 $$ u = 1 - \sqrt{\xi_1} $$
+
 $$ v = \sqrt{\xi_1}\xi_2 $$
 
 上面提到，假设了该三角形为腰长为 1 的等腰直角三角形，换成普通三角形只是 $p(u, v)$ 不同（依赖三角形的面积 $S$），其它都一样。
