@@ -110,7 +110,7 @@ glm::vec2 RejectionSampleDisk(Sampler& sampler) {
 
 假设我们想分别按 PDF 为  <img src="https://www.zhihu.com/equation?tex=p_1" alt="p_1" class="ee_img tr_noresize" eeimg="1"> 、 <img src="https://www.zhihu.com/equation?tex=p_2" alt="p_2" class="ee_img tr_noresize" eeimg="1"> 、 <img src="https://www.zhihu.com/equation?tex=p_3" alt="p_3" class="ee_img tr_noresize" eeimg="1"> 、 <img src="https://www.zhihu.com/equation?tex=p_4" alt="p_4" class="ee_img tr_noresize" eeimg="1">  来采样四个随机变量，我们把它们的 CDF （ <img src="https://www.zhihu.com/equation?tex=\sum_{1}^{i} p_i" alt="\sum_{1}^{i} p_i" class="ee_img tr_noresize" eeimg="1"> ） 绘制出来，如图所示：
 
-![](./discrete-cdf.png)
+![](https://raw.githubusercontent.com/LYP951018/Markdown4Zhihu/master/Data/Sampling/discrete-cdf.png)
 
 如果我们在  <img src="https://www.zhihu.com/equation?tex=[0, 1)" alt="[0, 1)" class="ee_img tr_noresize" eeimg="1">  随机取变量  <img src="https://www.zhihu.com/equation?tex=\xi" alt="\xi" class="ee_img tr_noresize" eeimg="1"> ，在 Y 轴画条线找到第一个有交点的变量，就显而易见地满足了指定的 PDF :
 
